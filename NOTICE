@@ -1,0 +1,9 @@
+This repository contains documentation adapted from:
+
+Panniantong/Agent-Reach
+https://github.com/Panniantong/Agent-Reach
+
+Original project license: MIT
+
+This repository extracts and reorganizes only the WeChat public account
+article search and reading workflow for standalone use as an AI agent skill.
