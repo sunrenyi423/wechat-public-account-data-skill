@@ -25,6 +25,9 @@ wechat-public-account-data-skill/
 ├── SKILL.md
 ├── LICENSE
 ├── NOTICE
+├── requirements.txt
+├── scripts/
+│   └── fetch_wechat_article.py
 └── references/
     └── wechat.md
 ```
@@ -56,6 +59,43 @@ cd ~/.agent-reach/tools/wechat-article-for-ai
 python3 main.py "https://mp.weixin.qq.com/s/ARTICLE_ID"
 ```
 
+## 可直接运行的抓取脚本
+
+仓库内置了一个最小可用脚本：
+
+```bash
+python scripts/fetch_wechat_article.py "https://mp.weixin.qq.com/s/ARTICLE_ID" --format json --pretty
+```
+
+也支持导出 Markdown：
+
+```bash
+python scripts/fetch_wechat_article.py "https://mp.weixin.qq.com/s/ARTICLE_ID" --format markdown
+```
+
+### 输出字段
+
+- `title`
+- `author`
+- `account_name`
+- `publish_time`
+- `digest`
+- `content_text`
+- `content_markdown`
+- `image_urls`
+
+### 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+### 脚本边界
+
+- 适合公开可读的公众号文章
+- 对强验证码或更复杂反爬页面，不保证稳定
+- 如果抓不到正文，建议切到 `references/wechat.md` 里的浏览器方案
+
 ## 适用的 Agent 请求
 
 - 帮我找几篇关于退休生活的公众号文章
@@ -74,6 +114,17 @@ python3 main.py "https://mp.weixin.qq.com/s/ARTICLE_ID"
 - mp.weixin.qq.com
 - 微信公众号
 - 读一下这篇微信文章
+
+## 作为可安装技能使用
+
+如果你在 Agent 系统里使用技能目录约定，只需要把本目录放进 skills 路径即可。
+
+触发词已经写在 `SKILL.md` 中，Agent 提到这些词时可自动匹配：
+
+- 公众号
+- 微信文章
+- 微信公众号
+- mp.weixin.qq.com
 
 ## 来源说明
 

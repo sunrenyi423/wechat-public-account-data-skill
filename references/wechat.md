@@ -65,6 +65,12 @@ curl -s "https://r.jina.ai/https://mp.weixin.qq.com/s/ARTICLE_ID"
 
 直接抓正文，再总结。
 
+如果只是需要快速抓结构化数据，也可以直接运行仓库自带脚本：
+
+```bash
+python scripts/fetch_wechat_article.py "https://mp.weixin.qq.com/s/ARTICLE_ID" --format json --pretty
+```
+
 ### 用户让你“找公众号号主/账号”
 
 公众号公开搜索通常以文章为入口，不要假设能稳定拿到完整账号资料。优先返回相关文章和可确认来源。
